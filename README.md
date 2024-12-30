@@ -10,13 +10,16 @@ I am a passionate Web developer with a keen interest in Web design. My goal is t
 
 ### Project 1: Best Offer Tracker
 
-- Description: [Brief description of the project]
+- Description: We aim to create software that assists consumers in discovering the best available offers on a variety of products within a specific geographic area.
+By implementing this project, we aim to meet the needs of our customers by providing them with a convenient way to identify the top-ranked offers in the market.
+This software will facilitate direct communication between customers and shopkeepers,
+enabling customers to easily connect with the respective sellers and their products.
 - Technologies: HTML, CSS, BOOSTRAP, JAVASCRIPT, PHP, SQL.
 - [Link to the project or demo]
 
-### Project 2: [Project Name]
+### Project 2: Online Diagnostic Lab Reporting Sytem
 
-- Description: [Brief description of the project]
+- Description: The purpose of the project entitled as“Online Diagnostic Lab Reportingsystem” is to develop web application tocomputerize of a Diagnostic Systemwhich is user friendly simple, fast, andcost-effective, as from patientsperspective he can get the reports ofmedical test online such as CT scan testreport, MRI test etc on my system.
 - Technologies: HTML, CSS, BOOSTRAP, JAVASCRIPT, PHP, SQL.
 - [Link to the project or demo]
 
@@ -25,8 +28,8 @@ I am a passionate Web developer with a keen interest in Web design. My goal is t
 ## Skills
 
 - Programming Languages: HTML, CSS, BOOSTRAP, JAVASCRIPT, PHP, SQL.
-- Web Technologies: [List of web technologies you're familiar with]
-- Tools and Frameworks: [List of tools and frameworks you've used]
+- Web Technologies:HTML,CSS,BOOTSTRAP
+- Tools and Frameworks: MOODLE,GIT,GITHUB,
 
 ## Contact
 
@@ -38,5 +41,5 @@ I am open to contributions and collaborations. If you find any issues or improve
 
 ## License
 
-This project is licensed under the [Your License] - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the vikas rathod - see the  file for details.
 
