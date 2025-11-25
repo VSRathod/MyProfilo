@@ -251,3 +251,46 @@
   new PureCounter();
 
 })()
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent page reload
+
+  const form = e.target;
+  const loading = form.querySelector('.loading');
+  const errorMessage = form.querySelector('.error-message');
+  const sentMessage = form.querySelector('.sent-message');
+
+  // Show loading, hide others
+  loading.style.display = "block";
+  errorMessage.style.display = "none";
+  sentMessage.style.display = "none";
+
+  const formData = {
+    name: form.name.value,
+    email: form.email.value,
+    subject: form.subject.value,
+    message: form.message.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbyLdog3Oft0StNrG9mSrL2B-mvXayJkwWykQRGVPWeGN1oRGiR-01xV_t86IPyFgf_U/exec", { // Replace with your Google Apps Script Web App URL
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    loading.style.display = "none";
+    if (data.result === "success") {
+      sentMessage.style.display = "block";
+      form.reset();
+    } else {
+      errorMessage.textContent = "Error sending message.";
+      errorMessage.style.display = "block";
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    loading.style.display = "none";
+    errorMessage.textContent = "Error sending message.";
+    errorMessage.style.display = "block";
+  });
+});
