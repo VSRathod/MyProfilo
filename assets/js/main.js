@@ -252,15 +252,16 @@
 
 })()
 
+// contact form
 document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent page reload
+  e.preventDefault(); // Stop page reload
 
   const form = e.target;
   const loading = form.querySelector('.loading');
   const errorMessage = form.querySelector('.error-message');
   const sentMessage = form.querySelector('.sent-message');
 
-  // Show loading, hide others
+  // Show loading, hide errors/success
   loading.style.display = "block";
   errorMessage.style.display = "none";
   sentMessage.style.display = "none";
@@ -272,25 +273,27 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     message: form.message.value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbxwJVXGgT7ZlrwFKga0BfhyQ_I4qgUQ8g_iiRUOykWLLO5OIM_QAZ6H1WgQtvLo8y_G/exec", { // Replace with your Google Apps Script Web App URL
+  fetch("https://script.google.com/macros/s/AKfycby0bYoUKxXnaEo6btK_j85JmFKyjZ_ZD8d-bbMyLNNyZwP3dO8f-McJEOQLt1znfQ0z/exec", {  // <-- apni Google Apps Script Web App URL paste karein
     method: "POST",
-    body: JSON.stringify(formData)
+    body: JSON.stringify(formData),
+    headers: { "Content-Type": "application/json" }
   })
-  .then(response => response.json())
-  .then(data => {
-    loading.style.display = "none";
-    if (data.result === "success") {
-      sentMessage.style.display = "block";
-      form.reset();
-    } else {
-      errorMessage.textContent = "Error sending message.";
+    .then(response => response.json())
+    .then(data => {
+      loading.style.display = "none";
+
+      if (data.success === true) {
+        sentMessage.style.display = "block";
+        form.reset();
+      } else {
+        errorMessage.textContent = data.error || "Error sending message.";
+        errorMessage.style.display = "block";
+      }
+    })
+    .catch(err => {
+      loading.style.display = "none";
+      console.error(err);
+      errorMessage.textContent = "Request error: " + err;
       errorMessage.style.display = "block";
-    }
-  })
-  .catch(err => {
-    console.error(err);
-    loading.style.display = "none";
-    errorMessage.textContent = "Error sending message.";
-    errorMessage.style.display = "block";
-  });
+    });
 });
