@@ -776,21 +776,19 @@
     Designed by <a href="#">Vikas Rathod</a>
   </div>
   
-   <script>
+<script>
 document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault(); // Stop page reload
+  e.preventDefault();
 
   const form = e.target;
   const loading = form.querySelector('.loading');
   const errorMessage = form.querySelector('.error-message');
   const sentMessage = form.querySelector('.sent-message');
 
-  // Show loading, hide other messages
   loading.style.display = "block";
   errorMessage.style.display = "none";
   sentMessage.style.display = "none";
 
-  // Collect form data
   const formData = {
     name: form.name.value.trim(),
     email: form.email.value.trim(),
@@ -798,8 +796,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     message: form.message.value.trim()
   };
 
-  // Send POST request to Google Apps Script Web App
-  fetch("https://script.google.com/macros/s/AKfycbwm16tPsTdx5Azlc0rY4rj2huqIvnGJg7wPzkU86XKaX1OXiT4yUWnnpGlw0A2fH3Xh/exec", {  // <-- Replace with your deployed Web App URL
+  fetch("YOUR_WEB_APP_URL_HERE", { // Replace with your Web App URL
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData)
@@ -824,6 +821,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   });
 });
 </script>
+
 
   <!-- Vendor JS Files -->
   <!-- <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script> -->
