@@ -272,7 +272,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     message: form.message.value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbyLdog3Oft0StNrG9mSrL2B-mvXayJkwWykQRGVPWeGN1oRGiR-01xV_t86IPyFgf_U/exec", { // Replace with your Google Apps Script Web App URL
+  fetch("https://script.google.com/macros/s/AKfycbxwJVXGgT7ZlrwFKga0BfhyQ_I4qgUQ8g_iiRUOykWLLO5OIM_QAZ6H1WgQtvLo8y_G/exec", { // Replace with your Google Apps Script Web App URL
     method: "POST",
     body: JSON.stringify(formData)
   })
